@@ -57,7 +57,7 @@ export const App: React.FC = () => {
                 <div
                   className="dropdown-item"
                   data-cy="suggestion-item"
-                  key={person.slug}
+                  key={person.id}
                   onMouseDown={() => {
                     setCurrentPerson(person);
                     setDropdownIsActive(false);
