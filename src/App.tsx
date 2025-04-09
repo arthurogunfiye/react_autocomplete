@@ -24,7 +24,7 @@ export const App: React.FC = () => {
       debounceSearch(changeEvent.target.value);
       setCurrentPerson(null);
     },
-    [],
+    [debounceSearch],
   );
 
   return (
@@ -53,11 +53,11 @@ export const App: React.FC = () => {
 
           <div className="dropdown-menu" role="menu" data-cy="suggestions-list">
             <div className="dropdown-content">
-              {visiblePeople.map((person, index) => (
+              {visiblePeople.map(person => (
                 <div
                   className="dropdown-item"
                   data-cy="suggestion-item"
-                  key={index + 1}
+                  key={person.slug}
                   onMouseDown={() => {
                     setCurrentPerson(person);
                     setDropdownIsActive(false);
